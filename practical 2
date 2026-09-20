@@ -1,0 +1,14 @@
+S, T = 5, [[] for _ in range(5)]
+b = lambda k: T[hash(k) % S]
+def insert(k, v):
+    b(k)[:] = [x for x in b(k) if x[0] != k] + [[k, v]]
+    print(f"Insert {k}:", T)
+def delete(k):
+    b(k)[:] = [x for x in b(k) if x[0] != k]
+    print(f"Delete {k}:", T)
+lookup = lambda k: print(f"Lookup {k}:", dict(b(k)).get(k))
+update = insert
+insert("cat", 1)
+lookup("cat")
+update("cat", 10)
+delete("cat")
