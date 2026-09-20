@@ -1,0 +1,16 @@
+S, T, D = 7, [None] * 7, "DEL"
+
+def op(act, k, v=None, ts=None):
+    print(f"\n{act.upper()} key={k}:")
+    for i in range(S):
+        e = T[x := (k % S + i) % S]
+        print(f" Probe {i} (slot {x}): {e}")
+        ts = x if act == "ins" and e == D and ts is None else ts
+        if (m := type(e) is list and e[0] == k) or e is None:
+            if m: T[x] = D if act == "del" else [k, v] if act != "get" else e
+            elif act in ("ins", "up"): T[x if ts is None else ts] = [k, v]
+            return print(" Result:", T)
+
+tasks = [("ins", 10, "red"), ("ins", 17, "blue"), ("up", 17, "green"), ("del", 10), ("get", 17)]
+for t in tasks:
+    op(*t)
