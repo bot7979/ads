@@ -1,0 +1,12 @@
+S, P, T = 13, 7, [None] * 13
+
+def insert(k):
+    h1, h2 = k % S, P - (k % P)
+    for i in range(S):
+        if T[x := (h1 + i * h2) % S] is None:
+            T[x] = k
+            return print(f"Probe {i}: Placed {k} at slot {x} (h2={h2}) -> {T}")
+        print(f"Probe {i}: Collision for {k} at slot {x} with {T[x]}")
+
+for k in [26, 39, 52]:
+    insert(k)
