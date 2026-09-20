@@ -1,0 +1,10 @@
+S, T = 17, [[] for _ in range(17)]
+
+def insert(k):
+    b = T[x := k % S]
+    c = f"Collision #{len(b)}" if b else "HEAD"
+    b.append(k)
+    print(f"Key {k:2d} -> Bucket {x:2d} [{c:12s}]: {b}")
+
+for k in [5, 22, 10, 27, 44, 3]:
+    insert(k)
