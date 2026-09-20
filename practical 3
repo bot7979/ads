@@ -1,0 +1,16 @@
+S, T = 7, [None] * 7
+print("Initial Table:", T)
+
+def insert(key):
+    print(f"\n--- Inserting Key: {key} ---")
+    for probe in range(S):
+        idx = (key % S + probe) % S
+        if T[idx] is None:
+            T[idx] = key
+            print(f"  Probe {probe}: Slot {idx} is FREE -> Placed {key} at index {idx}")
+            print(f"  Table State: {T}")
+            return
+        print(f"  Probe {probe}: Slot {idx} Has {T[idx]} -> Collision for key {key}")
+
+for key in [14, 21, 28]:
+    insert(key)
