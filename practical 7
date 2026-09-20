@@ -1,0 +1,12 @@
+old_T, N = [5, 12, 19], 7
+new_T = [None] * N
+
+def rehash(k):
+    for i in range(N):
+        if new_T[x := (k % N + i) % N] is None:
+            new_T[x] = k
+            return print(f"Probe {i}: Placed {k} at slot {x} -> {new_T}")
+        print(f"Probe {i}: Collision for {k} at slot {x} with {new_T[x]}")
+
+for k in old_T:
+    rehash(k)
