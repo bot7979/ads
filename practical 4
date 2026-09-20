@@ -1,0 +1,11 @@
+S, T = 11, [None] * 11
+
+def insert(k):
+    for i in range(S):
+        if T[x := (k % S + i**2) % S] is None:
+            T[x] = k
+            return print(f"Probe {i}: Placed {k} at slot {x} -> {T}")
+        print(f"Probe {i}: Collision for {k} at slot {x} with {T[x]}")
+
+for k in [22, 33, 44]:
+    insert(k)
