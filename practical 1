@@ -1,0 +1,15 @@
+S, T = 3, [[] for _ in range(3)]
+print("Empty:", T)
+
+def insert(k): T[k % S].append(k); print(f"Insert {k}:", T)
+def lookup(k): print(f"Lookup {k}:", k in T[k % S])
+def delete(k):
+    if k in T[k % S]: T[k % S].remove(k)
+    print(f"Delete {k}:", T)
+def update(o, n): delete(o); insert(n)
+
+insert(10)
+insert(13)
+lookup(13)
+update(10, 16)
+delete(13)
